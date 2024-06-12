@@ -4,8 +4,6 @@ import shutil
 
 def organize_desktop(desktop):
     script_folder = os.path.dirname(os.path.realpath(__file__))
-    st.write(f"Desktop path: {desktop}")
-    st.write(f"Script folder path: {script_folder}")
     
     files_folder = os.path.join(desktop, 'Files')
     folders_folder = os.path.join(desktop, 'Folders')
