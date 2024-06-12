@@ -1,11 +1,12 @@
-import streamlit as st
 import os
 import shutil
 
-def organize_desktop(desktop):
+def organize_desktop():
+    # Correct desktop path for Windows using raw string literal
+    desktop = r'C:\Users\roger\OneDrive\Desktop'
     script_folder = os.path.dirname(os.path.realpath(__file__))
-    st.write(f"Desktop path: {desktop}")
-    st.write(f"Script folder path: {script_folder}")
+    print(f"Desktop path: {desktop}")
+    print(f"Script folder path: {script_folder}")
     
     files_folder = os.path.join(desktop, 'Files')
     folders_folder = os.path.join(desktop, 'Folders')
@@ -28,18 +29,8 @@ def organize_desktop(desktop):
             elif os.path.isdir(item_path):
                 shutil.move(item_path, folders_folder)
         except Exception as e:
-            st.write(f"Could not move {item_path}: {e}")
+            print(f"Could not move {item_path}: {e}")
 
-# Streamlit app
-st.title("Desktop Organizer")
-
-# Input text field for desktop path
-desktop_path = st.text_input("Enter the path to your desktop:", placeholder="C:\\Users\\roger\\OneDrive\\Desktop")
-
-# Button to start the organization process
-if st.button("Organize"):
-    if desktop_path:
-        organize_desktop(desktop_path)
-        st.write("Desktop organized successfully!")
-    else:
-        st.write("Please enter a valid desktop path.")
+if __name__ == "__main__":
+    organize_desktop()
+    print("Desktop organized successfully!")
