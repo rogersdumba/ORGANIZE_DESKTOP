@@ -5,9 +5,8 @@ import shutil
 def organize_desktop(desktop_path):
     script_folder = os.path.dirname(os.path.realpath(__file__))
     
-    # Create target folders within the desktop_path
-    files_folder = os.path.join(desktop_path, 'Desktop_Files')
-    folders_folder = os.path.join(desktop_path, 'Desktop_Folders')
+    files_folder = os.path.join(desktop_path, 'Files')
+    folders_folder = os.path.join(desktop_path, 'Folders')
 
     if not os.path.exists(files_folder):
         os.makedirs(files_folder)
@@ -18,7 +17,7 @@ def organize_desktop(desktop_path):
         item_path = os.path.join(desktop_path, item)
 
         # Skip the organizing folders and the script's own directory
-        if item in ['Desktop_Files', 'Desktop_Folders'] or item_path == script_folder:
+        if item in ['Files', 'Folders'] or item_path == script_folder:
             continue
 
         try:
