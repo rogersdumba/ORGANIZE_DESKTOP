@@ -31,7 +31,7 @@ def organize_desktop(desktop_path):
 # Streamlit UI
 st.title("Desktop Organizer")
 
-desktop_path = st.text_input("Enter your desktop path:", placeholder=r'Enter Your Desktop Path Here!')
+desktop_path = st.text_input("Enter your desktop path:", placeholder=r'C:\Users\roger\OneDrive\Desktop')
 
 if st.button("Organize Desktop"):
     if desktop_path:
